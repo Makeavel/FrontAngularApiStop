@@ -5,20 +5,22 @@ import { HttpClient, HttpErrorResponse, HttpHandler, HttpHeaders } from '@angula
 
 export class categoriaService{
 
-    url = "https://apistop.herokuapp.com/";
+    url = "https://apistop.herokuapp.com/api/stop";
 
     constructor(private httpClient: HttpClient){}
 
+    //header
     httpOptions = {
         headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
-
+    //adicionar
     getCategoriaByLetra(letra: string): Observable<categorias>{
-        return this.httpClient.get<categorias>(this.url + 'api/stop/caractere/' + letra)
+        return this.httpClient.get<categorias>(this.url + '/caractere/' + letra)
         .pipe(
             retry(2)
         )
     }
+
 
 
 }
