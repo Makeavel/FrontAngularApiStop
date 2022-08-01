@@ -13,14 +13,22 @@ export class categoriaService{
     httpOptions = {
         headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
+
     //adicionar
-    getCategoriaByLetra(letra: string): Observable<categorias>{
-        return this.httpClient.get<categorias>(this.url + '/caractere/' + letra)
+    getAddCategoriaByLetra(categorias: categorias): Observable<categorias>{
+        return this.httpClient.post<categorias>(this.url + '/create/', JSON.stringify(categorias), this.httpOptions)
         .pipe(
             retry(2)
         )
     }
 
+    //busca por ID
+    getBuscaCategoria(letra: string):Observable<categorias>{
+        return this.httpClient.get<categorias>(this.url + '/caracter/' + letra)
+        .pipe(
+            retry(2) //, catchError(this.handleError)
+        )
+    }
 
 
 }
