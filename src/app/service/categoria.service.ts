@@ -5,7 +5,10 @@ import { HttpClient, HttpErrorResponse, HttpHandler, HttpHeaders } from '@angula
 
 export class categoriaService{
 
-    url = "https://apistop.herokuapp.com/api/stop";
+
+    //url = "https://apistop.herokuapp.com/api/stop";
+    url = "http://localhost:8080/api/stop";
+
 
     constructor(private httpClient: HttpClient){}
 
@@ -13,6 +16,7 @@ export class categoriaService{
     httpOptions = {
         headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
+
 
     //adicionar
     getAddCategoriaByLetra(categorias: categorias): Observable<categorias>{
@@ -30,5 +34,18 @@ export class categoriaService{
         )
     }
 
+
+    //Causa de erro
+   handleError(error: HttpErrorResponse){
+    let errorMessage = '';
+    if(error.error instanceof ErrorEvent){
+        errorMessage = error.error.message;
+    }
+    else{
+        errorMessage = `Código de erro: ${error.status}, ` + `menssagem: ${error.message}`;
+    }
+        console.log(errorMessage);
+    return throwError(errorMessage);
+   }
 
 }

@@ -12,15 +12,16 @@
     
 <div class="header">
   <div class="inner-header flex">
-    
-        <h1 class="centerTitle">Stop</h1>
+        <img  class="centerTitle"  src="/src/assets/image/LogoStop.png">
+        <!--h1 class="centerTitle">Stop</h1-->
+
     </div>
     <div class="flexBox">
     <div class="box">
     <form class="center" action="/src/app/stopList.html">
         <label>Digite uma letra</label><br>
-        <input class="marginTop20" type="text" id="letra" name="letra"><br>
-        <input class="marginTop25" type="submit" value="Buscar">
+        <input class="marginTop20" type="text" [(ngModel)]="categoria.letra" id="letra" name="letra" #letra="ngModel" placeholder="Digite uma Letra"><br>
+        <button class="marginTop25" type="button" (click)="getBuscaCategoria(categoria)">Buscar</button>
     </form>
   </div>
 </div>
