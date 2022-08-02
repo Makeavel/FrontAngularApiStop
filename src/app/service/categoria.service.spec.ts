@@ -3,15 +3,16 @@ import { categoriaService } from "./categoria.service"
 
 
     describe('Categoria' , () => { 
-        let Service : categoriaService;
+    
+        let service : categoriaService;
         
         beforeEach(()=>{
             TestBed.configureTestingModule({});
-            Service = TestBed.inject(categoriaService);
+            service = TestBed.inject(categoriaService);
     });
 
     it('created',() => {
-        expect(Service).toBeTruthy();
+        expect(service).toBeTruthy();
     });
 
 });
