@@ -1,4 +1,4 @@
-export interface categorias{
+export interface Categorias{
 
     letra: string;
     nome: string;

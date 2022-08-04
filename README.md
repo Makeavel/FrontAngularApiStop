@@ -1,3 +1,9 @@
+<p align="center">
+</br>
+<img height="100" width="100" src="/src/assets/image/LogoStop.png"/>
+</br>
+</p>
+
 # FrontAngularApiStop
 
 FRONTEND da [APISTOP](https://github.com/Makeavel/ApiStop)
