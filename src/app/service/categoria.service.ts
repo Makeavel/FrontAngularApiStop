@@ -1,6 +1,6 @@
 import { throwError , Observable } from "rxjs";
 import { retry, catchError } from 'rxjs/operators';
-import { categorias } from "../model/categorias";
+import { Categorias } from "../model/categorias";
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 
@@ -23,8 +23,8 @@ export class categoriaService{
 
 
     //adicionar
-    getAddCategoriaByLetra(categorias: categorias): Observable<categorias>{
-        return this.httpClient.post<categorias>(this.url + '/create/', JSON.stringify(categorias), this.httpOptions)
+    getAddCategoriaByLetra(categorias: Categorias): Observable<Categorias>{
+        return this.httpClient.post<Categorias>(this.url + '/create/', JSON.stringify(categorias), this.httpOptions)
         .pipe(
             retry(2),
             catchError(this.handleError)
@@ -32,8 +32,8 @@ export class categoriaService{
     }
 
     //busca por ID
-    getBuscaCategoria(letra: string):Observable<categorias>{
-        return this.httpClient.get<categorias>(this.url + '/caracter/' + letra, this.httpOptions)
+    getBuscaCategoria(letra: string):Observable<Categorias>{
+        return this.httpClient.get<Categorias>(this.url + '/caracter/' + letra, this.httpOptions)
         .pipe(
             retry(2),
             catchError(this.handleError)
